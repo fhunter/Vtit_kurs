@@ -7,6 +7,10 @@ module pwm(
 	signal//выходной сигнал
 );
 
+input clock;
+input [3:0] value;
+output signal;
+
 reg [3:0] pwm_counter;//Счётчик
 
 always @(posedge clock)

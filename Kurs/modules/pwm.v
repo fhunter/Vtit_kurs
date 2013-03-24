@@ -7,15 +7,17 @@ module pwm(
 	signal//выходной сигнал
 );
 
+parameter WIDTH=4;
+
 input clock;
-input [3:0] value;
+input [(WIDTH-1):0] value;
 output signal;
 
-reg [3:0] pwm_counter;//Счётчик
+reg [(WIDTH-1):0] pwm_counter;//Счётчик
 
 always @(posedge clock)
 begin
-	pwm_counter<=pwm_counter+4'h1;
+	pwm_counter<=pwm_counter+1;
 end
 
 assign signal=(pwm_counter>=value);
